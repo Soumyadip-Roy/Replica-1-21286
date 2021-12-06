@@ -1,0 +1,361 @@
+/*general*/
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(220, 220, 220);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.white-bg {
+  background: white;
+}
+
+/*.screen:hover , .info>div:hover , .options:hover {box-shadow: 0px 0px 5px rgb(168, 168, 168);}*/
+
+/*header*/
+header {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+
+  box-shadow: rgb(182, 181, 181) 0px 0px 10px;
+
+  font-weight: 700;
+  font-size: min(3vh,3vw);
+}
+
+.rec {
+  display: flex;
+  align-items: center;
+  float: right;
+}
+.rec span {
+  font-weight: 500;
+  font-size: min(2vh, 2vw);
+  padding: 4px;
+}
+
+/*main container*/
+
+.container {
+  display: grid;
+  grid-template-columns: 20vw 46vw 21vw;
+  gap: 1.2vh;
+
+  box-sizing: border-box;
+
+  height: 70vh;
+  padding: 6vh; /*total height 76vh*/
+
+  justify-content: center;
+}
+section > div {
+  height: 69vh;
+}
+
+/*info*/
+
+.info {
+  display: grid;
+  grid-template-rows: 33% 20% 45%;
+  gap: 6px; /*constant grid gap*/
+}
+
+.info > div {
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden; /*----*/
+
+  transition: box-shadow 400ms;
+}
+
+.info > div:hover{
+    box-shadow: 0px 0px 10px rgba(129, 129, 129, 0.69) ;
+}
+
+.img1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#camera {
+  height: 90%;
+  width: 92%;
+}
+
+.list {
+  list-style: none;
+  padding: 10px 0px;
+  width: 15vw;
+  text-align: left;
+
+  margin: 0;
+  height: 75%;
+  overflow-y: scroll;
+}
+
+.list > li {
+  padding: 6px;
+  font-size: min(2vh, 2vw); /*for responsive text */
+  font-weight: 500;
+}
+.list > li:first-child {
+  font-weight: 700;
+  font-size: min(2.5vh, 2.5vw);
+}
+.list > li:hover {
+  color: rgb(63, 62, 62);
+}
+
+/*styling the scroll bar*/
+.list::-webkit-scrollbar {
+  width: 3.5px;
+}
+.list::-webkit-scrollbar-track {
+  margin-block: 10px;
+}
+.list::-webkit-scrollbar-thumb {
+  background-color: rgb(187, 186, 186);
+  border-radius: 5px;
+}
+
+/*screen*/
+.screen {
+  border-radius: 5px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+
+  transition: box-shadow 400ms;
+}
+.screen:hover{box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.69);}
+#screen-share {
+  height: 89%;
+}
+.screen > div {
+  width: 95%; 
+  font-weight: 600;
+  font-size: min(2.3vh, 2.3vw);
+}
+
+/*attendees*/
+
+.attendees {
+  display: grid;
+  gap: 6px; /*grid gap*/
+
+  height: 80vh; /*greater than other grid items*/
+  z-index: 0;
+
+  overflow-y: scroll;
+}
+
+.attendees > div {
+  box-sizing: border-box;
+
+  height: min(22vh, 22vw); /*responsive divs even w/o media queries*/
+  padding: 10px;
+
+  background: rgb(169, 169, 169);
+  border: 4px rgb(255, 255, 255) solid;
+  border-radius: 7px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  transition: background 300ms;
+}
+
+.name {
+  width: min(14vh, 14vw);
+  height: min(14vh, 14vw);
+
+  border: 3px white solid;
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 15px rgb(53, 238, 124);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: min(5vh, 5vw);
+}
+.att:last-child {
+  margin-bottom: 69px;
+} /*even the last div is clearly visible*/
+
+.att:hover,
+#first-div {
+  background: #94f7c7;
+}
+
+#glow {
+  animation: shadow 2s cubic-bezier(0.99, 0.02, 0.63, 0.32) 5s infinite
+      alternate,
+    brder 2s cubic-bezier(0.99, 0.02, 0.63, 0.32) 5s infinite; /*cubic bezie taken from dev tools*/
+}
+
+/*removing the scrollbar*/
+.scroll2::-webkit-scrollbar {
+  width: 0px;
+}
+
+/*sretting mic icons*/
+.mic {
+  width: 100%;
+}
+.mic > img {
+  height: min(3vh, 3vw);
+}
+
+/*animations*/
+
+@keyframes brder {
+  0% {
+    border: 3px rgba(84, 220, 238, 0.69) solid;
+  }
+  50% {
+    border: 3px #94f7c7 solid;
+  }
+  100% {
+    border: 3px rgba(46, 240, 214, 0.69) solid;
+  }
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: inset 0px 0px 10px rgb(71, 151, 255);
+  }
+  50% {
+    box-shadow: inset 0px 0px 20px rgb(6, 216, 199);
+  }
+  100% {
+    box-shadow: inset 0px 0px 5px rgba(3, 253, 128, 0.918);
+  }
+}
+
+/*options*/
+
+.bottom {
+  box-sizing: border-box; /*imp*/
+
+  position: absolute; /*positioning in the bottom*/
+  bottom: max(1.5vh, 1.5vw);
+  left: 2vw;
+  right: 2vw;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-radius: 5px;
+  padding: min(2vh, 2vw);
+  z-index: 69420;
+}
+
+/*menu*/
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu img {
+  width: min(2vh, 2vw);
+  height: min(2vh, 2vw);
+  margin: 0 0.6vw;
+  padding: min(1.5vh, 1.5vw) min(3vh, 3vw);
+
+  background: rgb(169, 169, 169);
+  border-radius: 4px;
+}
+.menu img:hover {
+  background: rgb(58, 253, 133);
+  transform: scale(0.98);
+}
+
+/*user*/
+.user {
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: min(2vh, 2vw);
+}
+.user p {
+  margin: 0px;
+}
+
+.user p:first-child {
+  font-weight: 700;
+  font-size: min(2.5vh, 2.5vw);
+}
+
+/*leave button*/
+.leave a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: min(14vh, 14vw);
+  background: rgb(247, 15, 15);
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  font-size: min(2vh, 2vw);
+}
+.leave img {
+  height: 20px;
+  padding: 10px;
+}
+
+.leave:hover {
+  transform: scale(0.98);
+}
+
+/*fully responsive*/
+
+@media all and (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: max(80vh, 65vw); /*most important*/
+    padding: 2vw;
+  }
+  .screen {
+    height: 250%;
+  }
+  .attendees {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+  .attendees > div {
+    align-items: center;
+    border: 2px solid white;
+
+    min-width: 20vw; /*change them*/
+    min-height: 20vw;
+  }
+  .att:last-child {
+    margin-bottom: 0px;
+  }
+
+  .info,
+  .user,
+  .leave p {
+    display: none;
+  }
+}
